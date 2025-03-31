@@ -1,0 +1,217 @@
+.log-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.ad-btn {
+    padding: 5px 12px;
+}
+
+.admin-name {
+    font-size: 1.2rem;
+}
+
+.admin-notice {
+    width: 100%;
+    height: 75px;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0 10px;
+}
+
+.notice marquee {
+    font-size: large;
+    color: #fff;
+    /* text-shadow: 0.5px 1px #fff; */
+}
+
+.balance-panel,
+.view-agents {
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.balance-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 14px;
+    background-color: #f2ebeb86;
+    padding: 30px 15px;
+}
+
+.balance-card {
+    width: 170px;
+    height: auto;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid cornflowerblue;
+    border-radius: 12px;
+    box-shadow: 1px 1px 10px 1px cornflowerblue;
+    padding: 10px;
+}
+
+.special-card {
+    background-color: cornflowerblue;
+}
+
+.balance-title {
+    color: cornflowerblue;
+}
+
+.special-title {
+    color: black;
+}
+
+.balance-show {
+    font-size: 1rem;
+    padding-top: 5px;
+}
+
+
+/* ------------ Add Agents Style ------------ */
+.addAgents {
+    border-radius: 14px;
+    margin: 15px;
+    padding: 10px 15px;
+    border: 1px solid cornflowerblue;
+}
+
+.addAgents .heading {
+    text-align: center;
+    font-size: 28px;
+    cursor: pointer;
+    background-color: #f2ebeb86;
+    border-radius: 12px;
+    padding: 10px;
+    /* Indicate that it is clickable */
+}
+
+.addAgents .heading p {
+    font-size: 15px;
+    padding: 0px;
+}
+
+.addAgents form {
+    display: none;
+    /* Form is hidden by default */
+    flex-direction: column;
+    gap: 0px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.addAgents.expanded form {
+    display: flex;
+    /* Form becomes visible when 'expanded' class is added */
+}
+
+.addAgents label {
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.addAgents input[type="text"],
+.addAgents input[type="number"],
+.addAgents input[type="email"],
+.addAgents input[type="password"],
+.addAgents select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    padding: 5px;
+}
+
+.addAgents .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+}
+
+.add-btn {
+    margin-top: 5px;
+}
+
+.upd {
+    margin-left: 5%;
+    text-decoration: none;
+    /* color: black; */
+}
+
+/* ----------- Data Show style ----------- */
+.agents-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px soild cornflowerblue;
+    border-radius: 12px;
+}
+
+.agent-list {
+    width: 100%;
+    table-layout: auto;
+    border: none;
+}
+
+.agent-list tr {
+    border: none;
+}
+
+.agent-list tr th {
+    background: cornflowerblue;
+    color: #fff;
+}
+
+.agent-list tr td {
+    text-align: center;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.action {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Responsive Design */
+@media(max-width: 768px) {
+    .addAgents {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .navbar .logout {
+        margin-top: 10px;
+    }
+
+    .addAgents {
+        margin-top: 100px;
+        padding: 10px;
+    }
+}
