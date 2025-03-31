@@ -1,46 +1,41 @@
 <?php
 session_start();
 require("db.php");
-$logEmailErr="";
-$logPassErr="";
-$loginErr="";
-if(isset($_POST['login']))
-{
-    
-    if($_POST['log_email'] == "")
-    {
-        $logEmailErr="Please enter the email.";
-    }else{
+$logEmailErr = "";
+$logPassErr = "";
+$loginErr = "";
+if (isset($_POST['login'])) {
+
+    if ($_POST['log_email'] == "") {
+        $logEmailErr = "Please enter the email.";
+    } else {
         if (filter_var($_POST['log_email'], FILTER_VALIDATE_EMAIL)) {
-    $log_email = $_POST['log_email'];
-} else {
-    $logEmailErr = "Incorrect email format.";
-}
+            $log_email = $_POST['log_email'];
+        } else {
+            $logEmailErr = "Incorrect email format.";
+        }
 
     }
-    
-    if($_POST['log_pass'] == "")
-    {
-        $logPassErr="Please enter the password.";
-    }else{
-        $log_pass=$_POST['log_pass'];
+
+    if ($_POST['log_pass'] == "") {
+        $logPassErr = "Please enter the password.";
+    } else {
+        $log_pass = $_POST['log_pass'];
     }
-    
-    $admin=mysqli_query($conn,"select * from admin where adminEmail='$log_email' and adminPass='$log_pass'");
-    if(mysqli_fetch_assoc($admin))
-    {
+
+    $admin = mysqli_query($conn, "select * from admin where adminEmail='$log_email' and adminPass='$log_pass'");
+    if (mysqli_fetch_assoc($admin)) {
         //echo "You are logged in.";
-        $_SESSION['email']=$log_email;
-        $_SESSION['password']=$log_pass;
-        
-        header("location:/website/admin.php");
-    }
-    else{
-        if(empty($logEmailErr) && empty($logPassErr)){
+        $_SESSION['email'] = $log_email;
+        $_SESSION['password'] = $log_pass;
+
+        header("location:/coin-deals/admin.php");
+    } else {
+        if (empty($logEmailErr) && empty($logPassErr)) {
             // echo $admin['adminEmail']. '<br>';
-            $loginErr="Incorrect email or password ";
+            $loginErr = "Incorrect email or password ";
         }
-        
+
     }
 }
 
@@ -48,6 +43,7 @@ if(isset($_POST['login']))
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,21 +73,22 @@ if(isset($_POST['login']))
             font-size: 24px;
             color: lightblue;
             margin-bottom: 20px;
-            text-align:center;
+            text-align: center;
         }
 
-       .signIn form {
+        .signIn form {
             display: flex;
             flex-direction: column;
             gap: 0px;
         }
-        .signIn form a{
-        font-size:10px;
-            text-align:center;
-            margin-bottom:3px;
+
+        .signIn form a {
+            font-size: 10px;
+            text-align: center;
+            margin-bottom: 3px;
         }
 
-       .signIn lebel {
+        .signIn lebel {
             font-size: 14px;
             color: #555;
         }
@@ -99,7 +96,7 @@ if(isset($_POST['login']))
         .signIn input[type="email"],
         input[type="password"] {
             padding: 12px;
-            padding-top:5px;
+            padding-top: 5px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
@@ -107,7 +104,7 @@ if(isset($_POST['login']))
             box-sizing: border-box;
         }
 
-       .signIn input[type="submit"] {
+        .signIn input[type="submit"] {
             padding: 12px;
             background-color: lightblue;
             border: none;
@@ -126,6 +123,7 @@ if(isset($_POST['login']))
             font-size: 12px;
             margin-bottom: 5px;
         }
+
         @media screen and (max-width: 768px) {
             .signIn {
                 padding: 30px;
@@ -159,22 +157,23 @@ if(isset($_POST['login']))
         }
     </style>
 </head>
+
 <body class="signinB">
-<section class="signIn">
-    <h1 class="heading">Sign In</h1><br>
-    <form method="POST" action="">
-        <label>Email:</label>
-        <input type="email" name="log_email" placeholder="abc@example.com">
-        <span class="error"><?php echo "$logEmailErr"; ?></span>
-        <label>Password:</label>
-        <input type="password" name="log_pass" placeholder="........">
-        <span class="error"><?php echo "$logPassErr"; ?></span>
-        <a href="signUp.php">No account? Register.</a>
-        <span class="error"><?php echo "$loginErr"; ?></span>
-        <input type="submit" name="login" value="Login Now"><br>
-    </form>
-</section>
+    <section class="signIn">
+        <h1 class="heading">Sign In</h1><br>
+        <form method="POST" action="">
+            <label>Email:</label>
+            <input type="email" name="log_email" placeholder="abc@example.com">
+            <span class="error"><?php echo "$logEmailErr"; ?></span>
+            <label>Password:</label>
+            <input type="password" name="log_pass" placeholder="........">
+            <span class="error"><?php echo "$logPassErr"; ?></span>
+            <a href="signUp.php">No account? Register.</a>
+            <span class="error"><?php echo "$loginErr"; ?></span>
+            <input type="submit" name="login" value="Login Now"><br>
+        </form>
+    </section>
 
 </body>
-</html>
 
+</html>
